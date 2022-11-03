@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User registration </title>
+    <link href="./style.css" rel="stylesheet"/>
+    <script>
+        function onDocumentLoad() {
+            let uName = document.querySelector('#uname');
+
+            uName.addEventListener('input', function () {
+                let nameRegex = RegExp('^[A-Z]{1}[A-Za-z]{2,}$');
+                let uNameErr = document.querySelector('#unameErr');
+
+                if (!nameRegex.test(uName.value) && uName.value.length != 0) {
+                    uNameErr.textContent = 'Invalid username';
+                } else {
+                    uNameErr.textContent = '';
+                }
+            });
+
+            let emailId = document.querySelector('#emailId');
+
+            let validateEmail = function () {
+                let emailRegex = RegExp('^([a-zA-z0-9]{3,})(([\\.\\+\\-_])?([a-zA-Z0-9]))*@([a-zA-z0-9]{3,})+([\\.]{1}[a-z]{2,3}){1,2}$');
+                let emailErr = document.querySelector('#emailIdErr');
+
+                if (!emailRegex.test(emailId.value) && emailId.value.length != 0) {
+                    emailErr.textContent = 'Invalid email';
+                } else {
+                    emailErr.textContent = '';
+                }
+            }
+            emailId.addEventListener('input', validateEmail);
+
+            let salary = document.querySelector('#salary');
+
+            let onSalaryChange = function () {
+                let salaryOp = document.querySelector('.salaryOp');
+
+                salaryOp.textContent = salary.value;
+            }
+
+            salary.addEventListener('input', onSalaryChange);
+        }
+    </script>
+</head>
+<body onload="onDocumentLoad()">
+
+    <header>
+        <h1>HTML5 Form input Fields</h1>
+    </header>
+
+    <form>
+
+        <div>
+            <label>
+                Text input type for Name:
+            </label>
+
+            <input type="text" name="uname" id="uname" />
+            <error class="errText" id="unameErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Password input type :
+            </label>
+
+            <input type="password" name="psw" id="psw" />
+            <error class="errText" id="pswErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Email :
+            </label>
+
+            <input type="email" name="emailId" id="emailId" />
+            <error class="errText" id="emailIdErr"></error>
+        </div>
+
+        <div>
+            <label>
+                URL :
+            </label>
+
+            <input type="url" name="website" id="website" />
+            <error class="errText" id="websiteErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Number :
+            </label>
+
+            <input type="number" name="number" id="number" />
+            <error class="errText" id="numberErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Telephone :
+            </label>
+
+            <input type="tel" name="phoneNumber" id="phoneNumber" />
+            <error class="errText" id="phoneNumberErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Search :
+            </label>
+
+            <input type="search" name="searchText" id="searchText" />
+            <error class="errText" id="searchErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Date :
+            </label>
+
+            <input type="datetime-local" name="joinDate" id="joinDate" />
+            <error class="errText" id="joinDateErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Country :
+            </label>
+
+            <select>
+                <option>---select----</option>
+                <option>India</option>
+                <option>Canada</option>
+                <option>Japan</option>
+                <option>Tokiyo</option>
+                <option>Australia</option>
+                <option>USA</option>
+                <option>Qatar</option>
+            </select>
+
+            <error class="errText" id="countryErr"></error>
+        </div>
+
+        <div>
+            <label>
+                Salary :
+            </label>
+            <span class="salaryRange">
+                <input type="range" id="salary" name="salary" min="200000" max="500000" value="400000" />
+                <output for="salary" class="salaryOp">400000</output>
+            </span>
+            <error class="errText" id="salaryErr"></error>
+        </div>
+
+        <div>
+            <button>Submit</button>
+        </div>
+
+
+    </form>
+
+</body>
+</html>
