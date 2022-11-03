@@ -1,0 +1,60 @@
+header {
+    background-color: #FF6044;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    flex-flow: column;
+}
+
+form {
+    margin-top: 50px;
+    padding: 50px;
+}
+
+label {
+    flex: 1;
+    text-align: right;
+}
+
+.salaryRange {
+    flex: 3;
+    display: flex;
+}
+
+input {
+    flex: 3;
+    margin-left: 20px;
+}
+
+select {
+    flex: 3;
+    margin-left: 20px;
+}
+
+button {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.errText {
+    color: red;
+    flex: 1;
+    margin-left: 10px;
+}
+
+@media screen and (min-width : 1080px) {
+    label {
+        font-size: 20px;
+    }
+
+    div {
+        flex-flow: row;
+    }
+}
